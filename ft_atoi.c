@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpollino <lpollino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 12:37:24 by lpollino          #+#    #+#             */
-/*   Updated: 2022/12/05 12:47:48 by lpollino         ###   ########.fr       */
+/*   Created: 2022/12/05 12:57:22 by lpollino          #+#    #+#             */
+/*   Updated: 2022/12/05 12:57:27 by lpollino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
+	int	atoi;
 
 	i = 0;
-	if (needle[i] == 0)
-		return ((char *)haystack);
-	while (haystack[i] != '\0' && len != 0)
+	j = 1;
+	atoi = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
 	{
-		j = 0;
-		while (haystack[i + j] == needle[j] && len > (i + j))
-		{
-			j++;
-			if (ft_strlen(needle) == j)
-				return ((char *)haystack + i);
-		}
+		j = -1;
 		i++;
 	}
-	return (NULL);
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		atoi = atoi * 10 + (str[i] - '0');
+		i++;
+	}
+	return (atoi * j);
 }

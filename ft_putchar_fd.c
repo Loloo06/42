@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpollino <lpollino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sbougher <sbougher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:32:30 by lpollino          #+#    #+#             */
-/*   Updated: 2022/11/22 14:51:53 by lpollino         ###   ########.fr       */
+/*   Created: 2022/03/24 15:00:21 by sbougher          #+#    #+#             */
+/*   Updated: 2022/03/24 15:00:58 by sbougher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int lt)
+void	ft_putchar_fd(char c, int fd)
 {
-	if ((lt >= 65) && (lt <= 90))
-	{
-		lt = lt + 32;
-		return (lt);
-	}
-	else
-	{
-		return (lt);
-	}
+	write(fd, &c, 1);
 }
-/*
-int main(void)
-{
-	char no = 'A';
-	printf("%c", ft_tolower(no));
-}
-*/

@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpollino <lpollino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: safi <safi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:32:30 by lpollino          #+#    #+#             */
-/*   Updated: 2022/11/22 14:51:53 by lpollino         ###   ########.fr       */
+/*   Created: 2022/03/24 15:00:21 by sbougher          #+#    #+#             */
+/*   Updated: 2022/10/26 18:47:39 by safi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int lt)
+void	ft_putstr_fd(char	*str, int fd)
 {
-	if ((lt >= 65) && (lt <= 90))
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
 	{
-		lt = lt + 32;
-		return (lt);
-	}
-	else
-	{
-		return (lt);
+		write(fd, &str[i], 1);
+		i++;
 	}
 }
-/*
-int main(void)
-{
-	char no = 'A';
-	printf("%c", ft_tolower(no));
-}
-*/

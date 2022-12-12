@@ -3,38 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpollino <lpollino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 13:24:54 by lpollino          #+#    #+#             */
-/*   Updated: 2022/11/22 13:24:38 by lpollino         ###   ########.fr       */
+/*   Created: 2022/12/06 12:07:42 by marvin            #+#    #+#             */
+/*   Updated: 2022/12/12 12:10:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-char	*ft_strrchr( const char *stri, int searchedChar)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = 0;
-	while (stri[i])
-		i++;
+	i = ft_strlen(s);
 	while (i >= 0)
 	{
-		if (stri[i] == (char)searchedChar)
-			return ((char *)(stri + i));
-			i--;
+		if (s [i] == (char)c)
+		{
+			return ((char *)(s + i));
+		}
+		i--;
 	}
-	return (0);
+	return (NULL);
 }
-
-/*int	main(void)
-{
-	char	*str;
-	int		let;
-
-	let = '\0';
-	str = "SALUT";
-	printf("LE RESULTAT = %s \n", ft_strrchr(str, let));
-	printf("LE RESULTAT = %s", strrchr(str, let));
-}*/
